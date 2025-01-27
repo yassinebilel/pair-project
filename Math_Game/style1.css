@@ -1,15 +1,15 @@
-
 body {
-    background-image: url(images/tay.jpg)   
+    background-image: url(images/background_image.jpg);
+    background-size: cover;
+    background-position: center;
 }
-#level{
+
+#level {
     display: grid;
     justify-content: center;
-    grid-template-columns: 200px 200px 200px 200px  ;
-    grid-template-rows: 200px 200px 200px 200px;
-
-   
-   background: url(images/tay.jpg);
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(4, 200px);
+    background: url(images/background_image.jpg);
     border: 2px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(4px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -17,8 +17,9 @@ body {
     border-radius: 10px;
     padding: 30px 40px;
 }
+
 .show-modal {
-    background-color:#DAD4B5 ;
+    background-color: #DAD4B5;
     border: 2px solid #8b4513;
     border-radius: 10px;
     color: black;
@@ -28,30 +29,19 @@ body {
     padding: 15px 30px;
     text-shadow: 1px 1px 2px #000;
     font-family: "Jersey 10", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(4px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-   
-    border-radius: 10px;
-    padding: 30px 40px;
-   
+    transition: transform 0.3s, color 0.3s;
 }
 
 .show-modal:hover {
- 
     transform: scale(1.05);
     color: #FFC100;
-    transition: color 0.3s;  
-    }
+}
 
 .hidden {
     display: none;
 }
 
-.modal  {
+.modal {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -74,36 +64,23 @@ body {
     backdrop-filter: blur(3px);
     z-index: 5;
 }
-#okay-button{
 
-        background-color: #fff;
-        border: none;
-        border-radius: 15px;
-        color: #FFC100;
-        transition: color 0.3s; 
-        font-family: "Edu VIC WA NT Beginner", cursive;
-        font-size: 40px;
-        text-align: center;
-        box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
-      }
-      
-#okay-button:hover{
-    
-        background-color: #821131;
-        border: none;
-        border-radius: 15px;
-        color: #204d51;
-        transition:  0.3s; 
-        font-family: "Edu VIC WA NT Beginner", cursive;
-        font-size: 40px;
-        text-align: center;
-        box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
-      }
-      
-   
+#okay-button {
+    background-color: #fff;
+    border: none;
+    border-radius: 15px;
+    color: #FFC100;
+    font-family: "Edu VIC WA NT Beginner", cursive;
+    font-size: 40px;
+    text-align: center;
+    box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+    transition: background-color 0.3s, color 0.3s;
+}
 
-
-
+#okay-button:hover {
+    background-color: #821131;
+    color: #204d51;
+}
 
 #num {
     width: 100px;
@@ -112,23 +89,38 @@ body {
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: xx-large;
-
 }
 
-
-#question{
+#question {
     font-size: 80px;
     color: #333;
     font-family: "Edu VIC WA NT Beginner", cursive;
     text-align: center;
-    margin: 0%;
+    margin: 0;
 }
 
 .Answerstyle {
     font-family: "Edu VIC WA NT Beginner", cursive;
     font-size: 40px;
     text-align: center;
-    
+}
+
+.modal {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.modal:not(.hidden) {
+    opacity: 1;
+}
+
+.overlay {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.overlay:not(.hidden) {
+    opacity: 1;
 }
 
 
@@ -136,9 +128,8 @@ body {
 
 
 
-  
 
-  
+
 
 
 

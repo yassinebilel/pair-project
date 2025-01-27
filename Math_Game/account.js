@@ -1,18 +1,12 @@
-var arr = [];
-
-var storedUsers = JSON.parse(localStorage.getItem("users"));
-
-if (storedUsers !== null) {
-  arr = storedUsers;
-}
+let users = JSON.parse(localStorage.getItem("users")) || [];
 
 function makeaccount() {
   return {
-    validatename: validatename,
-    validatephone: validatephone,
-    validatepassword: validatepassword,
-    handleaccountcreation: handleaccountcreation,
-    savetoaccount: savetoaccount,
+    validatename,
+    validatephone,
+    validatepassword,
+    handleaccountcreation,
+    savetoaccount,
   };
 }
 
@@ -25,30 +19,14 @@ function validatephone(phone) {
 }
 
 function validatepassword(password) {
-  var havupper = false;
-  var havnumber = false;
-  var havspecialcarac = false;
-
-  for (var i = 0; i < password.length; i++) {
-    var char = password[i];
-
-    if (char >= "A" && char <= "Z") {
-      havupper = true;
-    } else if (char >= "0" && char <= "9") {
-      havnumber = true;
-    } else if (char.match(/[.?{}]/)) {
-      havspecialcarac = true;
-    }
-  }
-  return havupper && havnumber && havspecialcarac;
+  const hasUpper = /[A-Z]/.test(password);
+  const hasNumber = /[0-9]/.test(password);
+  const hasSpecialChar = /[.?{}]/.test(password);
+  return hasUpper && hasNumber && hasSpecialChar;
 }
 
 function handleaccountcreation(name, lastname, phone, password) {
-  if (
-    validatename(name, lastname) &&
-    validatephone(phone) &&
-    validatepassword(password)
-  ) {
+  if (validatename(name, lastname) && validatephone(phone) && validatepassword(password)) {
     alert("Account created successfully");
     return true;
   } else {
@@ -58,33 +36,27 @@ function handleaccountcreation(name, lastname, phone, password) {
 }
 
 function savetoaccount(name, lastname, phone, password) {
-  var user = {
-    name: name,
-    lastname: lastname,
-    phone: phone,
+  const user = {
+    name,
+    lastname,
+    phone,
     email: document.querySelector('input[placeholder="Email"]').value,
-    password: password,
+    password,
   };
-  arr.push(user);
-  localStorage.setItem("users", JSON.stringify(arr));
+  users.push(user);
+  localStorage.setItem("users", JSON.stringify(users));
 }
 
 $(document).ready(function () {
-  var account = makeaccount();
+  const account = makeaccount();
 
   $("form").on("submit", function (e) {
     e.preventDefault();
 
-    var name = document.querySelector('input[placeholder="First Name"]').value;
-    var lastname = document.querySelector(
-      'input[placeholder="Last Name"]'
-    ).value;
-    var phone = document.querySelector(
-      'input[placeholder="Phone Number"]'
-    ).value;
-    var password = document.querySelector(
-      'input[placeholder="Password"]'
-    ).value;
+    const name = document.querySelector('input[placeholder="First Name"]').value;
+    const lastname = document.querySelector('input[placeholder="Last Name"]').value;
+    const phone = document.querySelector('input[placeholder="Phone Number"]').value;
+    const password = document.querySelector('input[placeholder="Password"]').value;
 
     if (account.handleaccountcreation(name, lastname, phone, password)) {
       account.savetoaccount(name, lastname, phone, password);

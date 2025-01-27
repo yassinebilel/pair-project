@@ -12,31 +12,54 @@
   </head>
   <body>
     <div class="parent">
-      <form action="">
-        <h1>Login</h1>
-        <div class="input">
-          <input type="text" placeholder="Username" />
-          <i class="bx bxs-user"></i>
-        </div>
+     
+<form id="loginForm" class="parent" aria-label="Login Form">
+  <h1>Login</h1>
+  <div class="input">
+    <input type="text" id="email" placeholder="Email" aria-label="Email" required>
+    <i class="fas fa-envelope"></i>
+  </div>
+  <div class="input">
+    <input type="password" id="password" placeholder="Password" aria-label="Password" required>
+    <i class="fas fa-lock"></i>
+  </div>
+  <div class="remember-forget">
+    <label>
+      <input type="checkbox" id="rememberMe" aria-label="Remember Me"> Remember Me
+    </label>
+    <a href="#" aria-label="Forgot Password">Forgot Password?</a>
+  </div>
+  <button type="submit" class="btn">Login</button>
+  <div class="register">
+    <p>Don't have an account? <a href="register.html" aria-label="Register">Register</a></p>
+  </div>
+</form>
 
-        <div class="input">
-          <input type="password" placeholder="Password" />
-          <i class="bx bxs-lock-alt"></i>
-        </div>
-
-        <div class="remember-forget">
-          <label> <input id="rememberMe" type="checkbox" />Remember me </label>
-        </div>
-
-        <button class="btn" type="submit">Login</button>
-
-        <div class="register">
-          <p>
-            Don't have an account? <br />
-            <a href="createAccount.htm">Create an account</a>
-          </p>
-        </div>
-      </form>
+<!-- Registration Form -->
+<form id="registerForm" class="parent" aria-label="Registration Form">
+  <h1>Register</h1>
+  <div class="input">
+    <input type="text" id="firstName" placeholder="First Name" aria-label="First Name" required>
+    <i class="fas fa-user"></i>
+  </div>
+  <div class="input">
+    <input type="text" id="lastName" placeholder="Last Name" aria-label="Last Name" required>
+    <i class="fas fa-user"></i>
+  </div>
+  <div class="input">
+    <input type="tel" id="phone" placeholder="Phone Number" aria-label="Phone Number" required>
+    <i class="fas fa-phone"></i>
+  </div>
+  <div class="input">
+    <input type="email" id="email" placeholder="Email" aria-label="Email" required>
+    <i class="fas fa-envelope"></i>
+  </div>
+  <div class="input">
+    <input type="password" id="password" placeholder="Password" aria-label="Password" required>
+    <i class="fas fa-lock"></i>
+  </div>
+  <button type="submit" class="btn">Create Account</button>
+</form>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.7.1.js"
